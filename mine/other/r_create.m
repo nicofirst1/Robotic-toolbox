@@ -1,0 +1,13 @@
+function robot = r_create(theta,d,a,alpha,ndof)
+% create a robot structure from denavit-hartenberg parameters
+
+
+
+r = struct( 'theta', sym(theta), ...
+    'd', sym(d), ...
+    'a', sym(a), ...
+    'alpha', sym(alpha), ...
+    'ndof',ndof);
+
+robot = r;
+end
