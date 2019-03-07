@@ -1,5 +1,5 @@
 function rotations = rotation_mat(robot)
-
+% return the rotation matrices given a robot configuration
 
 rotations=sym(zeros(3,3,robot.ndof));
 

@@ -17,3 +17,10 @@ where:
 - J<sub>L</sub>(q)  : is the geometric jacobian for the position 
 - delta q : is the joint error
 
+# Singularities
+
+##  Rank
+When you have found some values of parameters (e.g. $\theta$=0) that makes the jacobian to have det=0 (singular), remember to study the rank of the jacobian with $\theta$=0.
+
+## Span
+When you have found some values of parameters (e.g. $\theta$=0) that makes the jacobian to have det=0 (singular), study the span of the jacobian since it will return the linear combination to get something like velocity.
