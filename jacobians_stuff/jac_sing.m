@@ -4,16 +4,26 @@ function Singularities = jac_sing(jac)
 
 res=0;
 
-for row= 1:size(jac,1)
+range=[];
+for idx=1:length(jac)
+    range=[range idx];
+end
 
-    for col=(row+1):size(jac,2)
+combinations=nchoosek(range,size(jac,1));
+
+for row= 1:length(combinations)
+    comb=combinations(row,:);
+
+    col=[];
+    for idx=comb
     
-        col1=jac(:,row);
-        col2=jac(:,col);
+        col=[col jac(:,idx)];
+      
         
-        res=[res det([col1,col2])];
         
     end
+        res=[res det(col)];
+
     
 
 end

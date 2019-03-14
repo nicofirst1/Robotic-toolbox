@@ -41,3 +41,11 @@ Set of all possible positions that can be reacehd by the robot end-effector with
 
 ## PRP planar robot
 When having the prismatic joint in between two revolutive ones remember that the di can be q1 (for the prismatic joint) plus some extra space
+
+# Inverse kinematicss
+
+## 3R planar
+The equations are:
+- $\phi$=$\theta_1$+$\theta_2$+$\theta_3$
+- $pw_x=a_1c_1+a_2c_{12}$
+- $pw_y=a_1s_1+a_2s_{12}$

@@ -5,7 +5,14 @@ z0=[0;0;1];
 rotations=rotation_mat(robot);
 jac_a=sym(zeros(3,length(rotations)));
 
-jac_a(:,1)=z0;
+zero=[0;0;0];
+
+if robot.type(1)=='r'
+
+    jac_a(:,1)=z0;
+else
+        jac_a(:,1)=zero;
+end
 
 
 for idx=2:length(rotations)
@@ -16,7 +23,11 @@ for idx=2:length(rotations)
    end
    
    zi=zi*z0;
-   jac_a(:,idx)=zi;
+   if robot.type(idx)=='r'
+    jac_a(:,idx)=zi;
+   else
+     jac_a(:,idx)=zero;
+   end
 
     
     
