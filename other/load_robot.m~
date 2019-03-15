@@ -4,7 +4,7 @@ function robot = load_robot(type,dim)
 
 if dim==2
     
-    if ~contains(type,"p")
+    if isempty(strfind(type,"p"))
         robot=r_nr2d(type,dim);
 
     end
@@ -19,10 +19,10 @@ end
 
 function robot=r_nr2d(type,dim)
     
-theta=[];
-a=[];
-d=[];
-alpha=[];
+theta=[]
+a=[]
+d=[]
+alpha=[]
 
 for idx=1:length(char(type))
    theta=[theta, "q"+idx];
@@ -33,14 +33,28 @@ for idx=1:length(char(type))
 end
 
 
-robot = struct( 'theta', sym(theta), ...
+robot = struct( 'theta', syms(theta), ...
     'd', d, ...
-    'a', sym(a), ...
+    'a', syms(a), ...
     'alpha', alpha, ...
     'type', char(type), ...
     'dim', dim, ...
-    'ndof',length(char(type)));
+    'ndof',2);
 
 
 end
 
+function robot=r_2d2r(type,dim)
+
+syms q1 q2 l1 l2
+
+robot = struct( 'theta', [q1 q2], ...
+    'd', [0 0], ...
+    'a', [l1 l2], ...
+    'alpha', [0 0], ...
+    'type', char(type), ...
+    'dim', dim, ...
+    'ndof',2);
+
+
+end

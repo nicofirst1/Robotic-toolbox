@@ -15,24 +15,44 @@ if robot.dim==2
         equations=ik_2R2D(robot,pd, phi);
 
         
-    elseif robot.type=="eee"
+    elseif robot.type=="rp"
             
+        equations=ik_1R1P2D(robot,pd, phi);
+            
+    else
         equations=0;
-            
-        else
-            equations=0;
 
-    
-        end
+
+    end
 
         
         
         
  
     end
-equations=simplify(equations);
 end
 
+
+
+function result=ik_1R1P2D(robot,pd, phi)
+
+theta21=sqrt(pd(1)^2+pd(2)^2);
+theta22=-theta21;
+
+theta11=atan2(pd(1)/theta21,-pd(2)/theta21);
+theta12=atan2(pd(1)/theta22,-pd(2)/theta22);
+
+
+
+
+first=[theta11,theta21];
+second=[theta12,theta22];
+
+result=[first;second];
+
+
+
+end
 
 function result = ik_3R2D( robot, pd, phi)
 c2= pd(1)^2+pd(2)^2-robot.a(1)^2-robot.a(2)^2;

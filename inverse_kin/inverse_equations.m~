@@ -1,29 +1,29 @@
-function equations = inverse_equations(types, dim, robot, pd, phi)
+function equations = inverse_equations( robot, pd, phi)
 %Given the type of manipulator and the dimension, return the equations for the inverse
 %kinematic.  pd is the desired position of the end effector
 
 
 
-if dim==2
+if robot.dim==2
     
-    if types=="rrr"
+    if robot.type=="rrr"
         
         equations=ik_3R2D(robot,pd, phi);
         
-    elseif types=="rr"
+    elseif robot.type=="rr"
 
         equations=ik_2R2D(robot,pd, phi);
 
         
-    elseif types=="eee"
+    elseif robot.type=="eee"
             
         equations=0;
             
-        else
-            equations=0;
+    else
+        equations=0;
 
-    
-        end
+
+    end
 
         
         
@@ -95,10 +95,10 @@ theta11=atan2(s11,c11);
 
 
 s11=(robot.a(1)+robot.a(2)*c2)*pd(2)-robot.a(2)*s22*pd(1);
-s11=s11/;
+s11=s11;
 
 c11=(robot.a(1)+robot.a(2)*c2)*pd(1)+robot.a(2)*s22*pd(2);
-c11=c11/det;
+c11=c11;
 
 theta12=atan2(s11,c11);
 
