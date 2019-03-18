@@ -10,7 +10,7 @@ for idx=1:size(Val_maxs,2)
    
     dqtau=diff(qtau,t);
     
-    Ti=minimum_motion_time(qtau,dqtau,Val_maxs(:,idx));
+    Ti=minimum_motion_time(qtau,Val_maxs(:,idx));
     Ts=[Ts Ti];
     
     qtau=dqtau;

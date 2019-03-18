@@ -25,6 +25,10 @@ When you have found some values of parameters (e.g. $\theta$=0) that makes the j
 ## Span
 When you have found some values of parameters (e.g. $\theta$=0) that makes the jacobian to have det=0 (singular), study the span of the jacobian since it will return the linear combination to get something like velocity.
 
+## Jacobian generic Term 
+A jeneric term in the null space of the jacobian is given by:
+
+$g=[I-J^\dagger(q)*J^\dagger(q)]*\dot{q}_0$
 
 # Workspace
 
@@ -47,4 +51,16 @@ When having the prismatic joint in between two revolutive ones remember that the
 
 # Second derivative
 
-$\ddot{q}$
+$\ddot{q}=J^{-1}(q)(\ddot{p_d}-\dot{J}(q)*\dot{q})$
+
+# Differential Inv/Kin
+
+## Feasable Velocity
+Given a velocity *V* and a jacobian *J*, *V* will be feasible if and only if it belongs to the range space (or image) of *J*.
+
+To check it just concatenate *V* with *J* column wise and check if the rank of the new matrix changes. If not then the velocity is feasable, since *V* is a linear combination of the columns of *J*, else it is not.
+
+## Balance force
+Given a force *F* and some torques $\tau$, if we want the torques to balance the force applied on the end effector we use:
+
+$F - J\tau=0 \Rightarrow \tau=J^{-1}*F$
