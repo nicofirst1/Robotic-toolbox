@@ -1,17 +1,26 @@
 function robot = load_robot(type,dim)
-%load a robot structure based on type and dims rather than dh parameters
+%load certain types of robot based on the number and types of joints
+%:param types: a string with n chars, either "P" or "R" for prismatic or
+%:param dim:(int) the dimenbsion in which the robot lies, either 2D or 3D,
+
 
 
 if dim==2
     
+    % if the robot has just n number of revolutive joints and no prismatic
+    % and if it is just a 2D type
     if ~contains(type,"p")
+        if dim==2
         robot=r_nr2d(type,dim);
+        else
+            error("Not implemented for 3 dimensions")
+        end
 
     end
     
     
 else
-    robot=0;
+    error("Not implemented with prismatic joints"); 
 end
 
 end
@@ -32,14 +41,7 @@ for idx=1:length(char(type))
     
 end
 
-
-robot = struct( 'theta', sym(theta), ...
-    'd', d, ...
-    'a', sym(a), ...
-    'alpha', alpha, ...
-    'type', char(type), ...
-    'dim', dim, ...
-    'ndof',length(char(type)));
+robot=dh2robot(theta,d,a,alpha,type,dim,type);
 
 
 end

@@ -1,5 +1,5 @@
 function M_r = frame_switch(M,rots)
-% Given a matrix M and a list of rotation matrices perform multiplication 
+% Given a matrix [M] and a list of rotation matrices [rots] perform multiplication 
 % to M in order to change the frame
 
 M_r=M;

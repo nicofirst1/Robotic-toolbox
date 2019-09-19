@@ -1,5 +1,5 @@
 function Singularities = jac_sing(jac)
-% return singularities of jac
+% return singularities of Jacobian matrix
 
 
 res=0;

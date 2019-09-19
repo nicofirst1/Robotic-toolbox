@@ -1,4 +1,4 @@
-function jv = pseudo_inv(j)
+function jv = pseudo_inverse(j)
 %Return the right pseudo inverse of a jacobian
 
 if class(j)=='sym'
