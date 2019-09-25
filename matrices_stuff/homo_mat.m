@@ -1,8 +1,7 @@
 function homos = homo_mat(robot)
 % return the homogeneus matrices given the robot
 
-% decide the types of convention used when building the DH, see later
-type="craig";
+
 
 homos=repmat(sym(zeros(4)), 1, 1, robot.ndof);
 
@@ -16,7 +15,7 @@ for idx= 1:robot.ndof
     d=robot.d(idx);
     
     % getting the right type of homo mat
-    if type=="canonical"
+    if robot.mdh==0
         homo=canonical_homo_mat(ct,st,ca,sa,a,d);
     else
         homo=craig_homo_mat(ct,st,ca,sa,a,d);

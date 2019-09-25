@@ -41,7 +41,7 @@ for idx=1:length(char(type))
     
 end
 
-robot=dh2robot(theta,d,a,alpha,type,dim,type);
+robot=dh2robot(theta,d,a,alpha,length(theta),type,dim);
 
 
 end
