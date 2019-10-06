@@ -1,4 +1,4 @@
-function robot = dh2robot(a,alpha,d,theta,types, dim, mdh)
+function robot = dh2robot(theta,d, a,alpha,types, dim, mdh)
 % create a robot structure from denavit-hartenberg parameters
 % :param theta, d, a, alpha: are vectors for the corresponding dh table, each
 % having 1xn, where n is the number of joints in the robot 
