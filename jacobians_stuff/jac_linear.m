@@ -1,4 +1,4 @@
-function Result=jac_from_pe(p,vars)
+function Result= jac_linear(p,vars)
 %jacobian given position of end-effector
 % p must be nDim x 1 vector
 
@@ -30,3 +30,4 @@ Result=res;
 
 
 end
+

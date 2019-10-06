@@ -3,6 +3,6 @@ function j = analitic_jac(robot,vars)
 %
 j=jac_from_robot(robot,vars);
 ja=jac_angular(robot);
-j(3,:)=ja(3,:)
+j(3,:)=ja(3,:);
 end
 

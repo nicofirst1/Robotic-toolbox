@@ -5,7 +5,7 @@ function   plot_robot(robot)
 
 for idx= 1:robot.ndof
     
-    t=sym_converter(robot.theta(idx),45);
+    t=sym_converter(robot.theta(idx),0);
     d=sym_converter(robot.d(idx),1);
     a=sym_converter(robot.a(idx),1);
     alpha=sym_converter(robot.alpha(idx),90);
@@ -31,11 +31,11 @@ for idx= 1:robot.ndof
     % setting joint type
     if robot.type(idx)=="R"
         
-        DH=[DH 0];
+        DH=[DH 0 0];
         
     else
         
-        DH=[DH 1];
+        DH=[DH 1 0];
 
     end
     
@@ -48,9 +48,14 @@ for idx= 1:robot.ndof
    
     
 end
-
+view(3);
 rob= SerialLink(L);
-rob.plot(zeros(robot.ndof));
+figure(1);
+view(3);
+rob.plot([0,-pi/2,-pi/2,0,0]);
+%figure(2);
+%view(3);
+%rob.teach
 
 end
 

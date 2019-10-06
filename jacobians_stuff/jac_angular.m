@@ -2,12 +2,13 @@ function jac_a = jac_angular(robot)
 %Compute the angular jacobian for revolutive joints
 
 z0=[0;0;1];
-rotations=rotation_mat(robot);
+rotations=homo_mat(robot);
+rotations=rotations(1:3,1:3,:);
 jac_a=sym(zeros(3,length(rotations)));
 
 zero=[0;0;0];
 
-if robot.type(1)=='r'
+if robot.type(1)=='R'
 
     jac_a(:,1)=z0;
 else

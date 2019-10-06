@@ -8,13 +8,10 @@ a=DH(1:link_num,3);
 alpha=DH(1:link_num,4);
 
 types=[];
-theta=[];
+theta=theta_syms(link_num);
 
 for idx=(1):link_num
     
-    % initialize and add a sym for theta
-    t= sym("t"+num2str(idx));
-    theta=[theta t];
     
     % add the type of the link
     if DH(idx,5)==0
