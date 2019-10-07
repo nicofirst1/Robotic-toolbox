@@ -1,6 +1,7 @@
-function robot = cork2mine(DH,dim,mdh)
+function robot = cork2mine(DH,dim,mdh, tool)
 %CORK2MINE Summary of this function goes here
 %  Given a DH matrix in Corke form, return  robot insance
+% tool: DH params for tool
 
 link_num=size(DH,1);
 d=DH(1:link_num,2);
@@ -8,7 +9,15 @@ a=DH(1:link_num,3);
 alpha=DH(1:link_num,4);
 
 types=[];
-theta=theta_syms(link_num);
+% get all zeros theta (will be transformed to sym)
+theta_zeros=sum(DH(:,1)==0);
+theta=theta_syms(theta_zeros);
+
+% add non zero as double
+if theta_zeros~=size(DH,1)
+    theta=[theta DH(theta_zeros+1:size(DH,1),1)];
+end
+    
 
 for idx=(1):link_num
     
@@ -31,7 +40,7 @@ else
     mdh=1;
 end
 
-robot=dh2robot(theta,d, a,alpha,types, dim, mdh);
+robot=dh2robot(theta,d, a,alpha,types, dim, mdh, tool);
  
 
 end
