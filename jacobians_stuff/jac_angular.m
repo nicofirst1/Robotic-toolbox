@@ -3,6 +3,8 @@ function jac_a = jac_angular(robot)
 
 z0=[0;0;1];
 rotations=homo_mat(robot);
+% discard tool rotation
+rotations=rotations(:,:,1:robot.ndof);
 rotations=rotations(1:3,1:3,:);
 jac_a=sym(zeros(3,length(rotations)));
 
@@ -24,7 +26,7 @@ for idx=2:length(rotations)
    end
    
    zi=zi*z0;
-   if robot.type(idx)=='r'
+   if robot.type(idx)=='R'
     jac_a(:,idx)=zi;
    else
      jac_a(:,idx)=zero;

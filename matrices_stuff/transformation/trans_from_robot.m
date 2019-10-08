@@ -6,7 +6,7 @@ function trans = trans_from_robot(robot,rrange)
 % get the homogeneus matrices
 homos=homo_mat(robot);
 
-if rrange=="all"
+if isstring(rrange) && rrange=="all"
     % get from first to last +1 (tool)
     rrange=[1, robot.ndof+1];
 end
