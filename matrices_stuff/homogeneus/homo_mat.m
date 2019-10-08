@@ -25,7 +25,8 @@ for idx= 1:robot.ndof
 end
 
 % add tool to last homo mat
-homos(:,:,idx+1) = robot.tool;
+homos(:,:,idx+1) = fix(robot.tool);
+homos=simplify(homos);
      
     
 
