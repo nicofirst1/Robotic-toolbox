@@ -8,7 +8,7 @@ homos=homo_mat(robot);
 
 if rrange=="all"
     % get from first to last +1 (tool)
-    rrange=[1, robot.ndof +1];
+    rrange=[1, robot.ndof+1];
 end
 % get the n-th one 
 trans=homos(:,:,rrange(1));

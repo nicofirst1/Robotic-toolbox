@@ -7,6 +7,7 @@ link_num=size(DH,1);
 d=DH(1:link_num,2);
 a=DH(1:link_num,3);
 alpha=DH(1:link_num,4);
+offset=DH(1:link_num,6);
 
 types=[];
 % get all zeros theta (will be transformed to sym)
@@ -40,7 +41,7 @@ else
     mdh=1;
 end
 
-robot=dh2robot(theta,d, a,alpha,types, dim, mdh, tool);
+robot=dh2robot(theta,d, a,alpha,types, dim, mdh, tool, offset);
  
 
 end

@@ -7,8 +7,8 @@ homos=repmat(sym(zeros(4)), 1, 1, robot.ndof+1);
 
 for idx= 1:robot.ndof
     % calculating the paramentes
-    ct = cos(robot.theta(idx));
-    st = sin(robot.theta(idx));
+    ct = cos(robot.theta(idx)+robot.offset(idx));
+    st = sin(robot.theta(idx)+robot.offset(idx));
     ca = cos(robot.alpha(idx));
     sa = sin(robot.alpha(idx));
     a= robot.a(idx);

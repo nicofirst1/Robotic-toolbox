@@ -1,4 +1,4 @@
-function robot = dh2robot(theta,d, a,alpha,types, dim, mdh, tool)
+function robot = dh2robot(theta,d, a,alpha,types, dim, mdh, tool, offset)
 % create a robot structure from denavit-hartenberg parameters
 % :param theta, d, a, alpha: are vectors for the corresponding dh table, each
 % having 1xn, where n is the number of joints in the robot 
@@ -9,12 +9,17 @@ function robot = dh2robot(theta,d, a,alpha,types, dim, mdh, tool)
 %:param mdh: 0 if standard D&H, else 1
 % param tool: either 0 or dh params for transformation, same order as
 % function [theta,d, a,alpha]
+%param offset: offset for thetas, if 0 then array of zeros
+
+
+if offset==0
+    offset=zeros(1,ndof);
+end
+
 
 % tool not given so make it identity matrix
 if tool==0
     tool=[1,0,0,0; 0,1,0,0; 0,0,1,0;  0,0,0,1;];
-
-  
 else 
     % get params
     theta_tool=tool(1);
@@ -37,6 +42,9 @@ else
 end
 
 
+
+
+
 robot = struct( 'theta', sym(theta), ...
     'd', sym(d), ...
     'a', sym(a), ...
@@ -45,7 +53,8 @@ robot = struct( 'theta', sym(theta), ...
     'dim', dim, ...
     'ndof',length(char(types)), ...
     'mdh',mdh ,...
-    'tool', tool);
+    'tool', tool, ...
+    'offset',offset);
 
 end
 
