@@ -29,9 +29,9 @@ else
     
     % compute cos/sin
     ct=cos(theta_tool);
-    ca=cos(a_tool);
+    ca=cos(alpha_tool);
     st=sin(theta_tool);
-    sa=sin(a_tool);
+    sa=sin(alpha_tool);
     
     % get right homo
     if mdh==1
