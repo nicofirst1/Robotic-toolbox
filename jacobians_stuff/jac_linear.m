@@ -6,7 +6,6 @@ res=sym(zeros(2,size(vars,2)));
 nDim=size(p,1);
 
 
-
 idx=1;
 for var=vars
     
@@ -16,10 +15,7 @@ for var=vars
         derivative=diff(temp_p,var);
         res(jdx,idx)=derivative;
 
-    
     end
-    
-    
 
     idx=idx+1;
     
