@@ -8,5 +8,7 @@ ja=jac_angular(robot);
 
 jac=[jl;ja];
 
+jac=simplify(jac);
+
 end
 
