@@ -41,7 +41,8 @@ else
     mdh=1;
 end
 
-robot=dh2robot(theta,d, a,alpha,types, dim, mdh, tool, offset);
+ndof=length(theta);
+robot=dh2robot(theta,d, a,alpha,ndof,types, dim, mdh, tool, offset);
  
 
 end
