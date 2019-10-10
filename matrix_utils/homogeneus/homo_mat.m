@@ -1,5 +1,5 @@
 function homos = homo_mat(robot)
-% return the homogeneus matrices given the robot
+% Given a robot struct as input returns a [4,4,ndof] matrix. To get the homo from n to m you use homos(:,:,m) 
 
 
 

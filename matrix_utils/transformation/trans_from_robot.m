@@ -1,7 +1,7 @@
 function trans = trans_from_robot(robot,rrange)
 % return the transition matrix given the robot and a range
 % rrange is the range in witch you want to get the trans matrices [n,m], or
-% all to compute everything
+% "all" to compute everything
 
 % get the homogeneus matrices
 homos=homo_mat(robot);
